@@ -340,7 +340,11 @@
 	}
 
 	if (window.addEventListener) {
-		window.addEventListener('scroll', scrollMonitorListener);
+		setTimeout(function () {
+			document.getElementById('article-previews').addEventListener('scroll', scrollMonitorListener);
+			document.getElementById('article-listing').addEventListener('scroll', scrollMonitorListener);
+			document.getElementsByClassName('op-content-left-profiles_wrapper')[0].addEventListener('scroll', scrollMonitorListener);
+		}, 10000);
 		window.addEventListener('resize', debouncedRecalcuateAndTrigger);
 	} else {
 		// Old IE support
